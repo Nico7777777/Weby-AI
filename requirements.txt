@@ -1,2 +1,1 @@
-pip install tkinter
-pip install openai
+openai
