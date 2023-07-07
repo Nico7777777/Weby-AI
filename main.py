@@ -30,9 +30,10 @@ e.grid(row=2, column=0)
 
 #---------------------FUNCTIONS---------------------
 def send():
-    send = "You -> " + e.get()
+    input = e.get()
+    send = "You -> " + input
     txt.insert(END, "\n" + send)
-    chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": "Hello world"}])
+    chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": input}])
     user = e.get().lower()
     txt.insert(END, "\n" + "Bot -> " + chat_completion.choices[0].message.content)
     e.delete(0, END)
