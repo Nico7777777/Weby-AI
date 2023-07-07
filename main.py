@@ -1,4 +1,5 @@
 from tkinter import *
+import scrapper
 import openai
 
 
@@ -51,13 +52,22 @@ def output_engines():
 send = Button(root, text="Send", font=FONT_BOLD, bg=BG_GRAY,
             command=send).grid(row=2, column=1)
 
+
 def main():
     root.mainloop()
 
 
 if __name__=="__main__":
-    #output_data()
-    #output_engines()
     gpt_turbo = models.data[16].id # gpt-3.5-turbo
-    #print()
-    main()
+    #main()
+    
+    scrapping_path = ".\\predeployed\\"
+    scrapper.file_to_scrap = scrapping_path + "output.txt"
+    scrapper.f = open(scrapper.file_to_scrap, 'r').read()
+
+    with open(scrapping_path + "main.html", "w") as h:
+        h.write(scrapper.extracter("html"))
+    with open(scrapping_path + "main.css", "w") as c:
+        c.write(scrapper.extracter("css"))
+    with open(scrapping_path + "main.js", "w") as j:
+        j.write(scrapper.extracter("javascript"))
