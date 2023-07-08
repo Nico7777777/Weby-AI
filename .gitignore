@@ -3,3 +3,5 @@ dist
 main.spec
 .env
 predeploy/*
+# Local Netlify folder
+.netlify

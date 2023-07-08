@@ -13,7 +13,7 @@ load_dotenv()
 
 
 openai.api_key = environ.get('OPENAI_SK')
-netlify_ssh_key = environ.get('NETLIFY_SSH_KEY')
+linkId = environ.get('NETLIFY_DEPLOY_ID')
 
 models = openai.Model.list()
 
@@ -43,7 +43,6 @@ e.grid(row=2, column=0)
 
 #---------------------FUNCTIONS---------------------
 def send():
-    isSend = True
     input = e.get()
     send = "You -> " + input
     txt.insert(END, "\n" + send)
@@ -53,19 +52,19 @@ def send():
         txt.insert(END, "\n" + "Bot -> Your command is done successfully! :)")
         if not path.exists("predeploy"):
             mkdir("predeploy")
-        with open(path.join("predeploy", "index.html"), "a") as f:
+        with open(path.join("predeploy", "index.html"), "w+") as f:
             f.write(extracter(chat_completion.choices[0].message.content, "html"))
         css_code = extracter(chat_completion.choices[0].message.content, "css")
-        with open(path.join("predeploy", "style.css"), "a") as f:
+        with open(path.join("predeploy", "style.css"), "w+") as f:
             f.write(css_code)
-        with open(path.join("predeploy", "styles.css"), "a") as f:
+        with open(path.join("predeploy", "styles.css"), "w+") as f:
             f.write(css_code)
-        with open(path.join("predeploy", "script.js"), "a") as f:
+        with open(path.join("predeploy", "script.js"), "w+") as f:
             f.write(extracter(chat_completion.choices[0].message.content, "javascript"))
         webbrowser.open(path.join("predeploy", "index.html"))
     else:
-        weby_deploy(netlify_ssh_key)
-        txt.insert(END, "\n" + "Bot -> Your deployment is done! :)")
+        weby_deploy(linkId)
+        txt.insert(END, "\n" + "Bot -> Your deployment is done! :)\n\nLink: https://weblyai-website--webyaiexample.netlify.app")
     e.delete(0, END)
 
 #----------------------------------------------------
