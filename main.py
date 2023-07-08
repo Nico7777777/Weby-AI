@@ -48,7 +48,7 @@ def send():
     txt.insert(END, "\n" + send)
     if (nlp_clasificator(input) < 0.3):
         chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": input},
-                                                                                        {"role": "system", "content": "I need help creating a website, please provide only HTML, CSS, and JS code for the following requirements: modern and user-friendly design, responsive layout for mobile and desktop, navigation menu for easy browsing, eye-catching home page, informative about page, contact page with form or contact details, customizable colors and fonts, please provide the necessary code to fulfill these requirements, please use embers theme color pallet for this website."}])
+                                                                                        {"role": "system", "content": "I need help creating a beautiful website, please provide only HTML, CSS and JS code for the following requirements: modern design, mobile and desktop responsive layout, navigation menu, attractive landing page, page information, contact page with form or contact details, customizable colors and fonts, please provide the best quality code to meet these requirements, make the site design of the web like netflix. Also, make it to be the best design forever with an awesome pallet color and background color black strictly."}])
         txt.insert(END, "\n" + "Bot -> Your command is done successfully! :)")
         if not path.exists("predeploy"):
             mkdir("predeploy")
@@ -77,5 +77,4 @@ def main():
 
 
 if __name__=="__main__":
-    gpt_turbo = models.data[16].id
     main()
