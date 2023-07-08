@@ -1,1 +1,0 @@
- an example of a beautiful website layout using HTML, CSS, and JavaScript for creating a website about selling doguletz (assuming it's a fictional product). Remember, this is just a template and you can modify it according to your needs.
