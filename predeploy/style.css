@@ -1,86 +1,71 @@
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-nav {
-  background-color: #1f1f1f;
-  padding: 20px;
-}
-
-nav ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: flex-start;
-}
-
-nav ul li {
-  padding: 0 10px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
 }
 
 header {
-  text-align: center;
-  margin: 100px 0;
+    padding: 20px;
+    background-color: #333;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+.navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
-h1,
-h2 {
-  margin-bottom: 10px;
+.navigation li {
+    margin-right: 20px;
 }
 
-p {
-  margin-bottom: 20px;
+.navigation li a {
+    color: white;
+    text-decoration: none;
 }
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: red;
-  color: white;
-  text-decoration: none;
+.landing {
+    text-align: center;
+    padding: 100px;
 }
 
-section {
-  text-align: center;
-  margin: 50px 0;
+.info {
+    padding: 50px;
+    background-color: #555;
+    text-align: center;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
+.contact {
+    padding: 50px;
+    background-color: #333;
+    text-align: center;
 }
 
-.form-group {
-  margin-bottom: 10px;
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
-label {
-  display: block;
+.contact button {
+    background-color: #555;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-}
-
-button[type="submit"] {
-  background-color: green;
-  border: none;
-  color: white;
-  padding: 10px 20px;
+footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
 }
