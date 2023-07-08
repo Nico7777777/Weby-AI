@@ -1,11 +1,19 @@
 from tkinter import *
 import openai
 from src.scrappy import extracter
+from src.nlp import nlp_clasificator
+from src.deploy import weby_deploy
+from os import environ
 from os import path
 from os import mkdir
+from os import sys
+from sys import platform
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-openai.api_key="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"
+openai.api_key = environ.get('OPENAI_SK')
 
 models = openai.Model.list()
 
@@ -39,21 +47,28 @@ def send():
     input = e.get()
     send = "You -> " + input
     txt.insert(END, "\n" + send)
-    chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": input},
-                                                                                    {"role": "system", "content": "you give me only the html, css and js for my requirement about a website without any messages and comments"}])
-    user = e.get().lower()
-    txt.insert(END, "\n" + "Bot -> Your command is done successfully! :)")
-    if not path.exists("predeploy"):
-        mkdir("predeploy")
-    with open(path.join("predeploy", "input.html"), "a") as f:
-        f.write(extracter(chat_completion.choices[0].message.content, "html"))
-    css_code = extracter(chat_completion.choices[0].message.content, "css")
-    with open(path.join("predeploy", "style.css"), "a") as f:
-        f.write(css_code)
-    with open(path.join("predeploy", "styles.css"), "a") as f:
-        f.write(css_code)
-    with open(path.join("predeploy", "script.js"), "a") as f:
-        f.write(extracter(chat_completion.choices[0].message.content, "javascript"))
+    if (nlp_clasificator(input) < 0.3):
+        chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": input},
+                                                                                        {"role": "system", "content": "you give me only the html, css and js for my requirement about a website without any messages and comments"}])
+        txt.insert(END, "\n" + "Bot -> Your command is done successfully! :)")
+        if not path.exists("predeploy"):
+            mkdir("predeploy")
+        with open(path.join("predeploy", "input.html"), "a") as f:
+            f.write(extracter(chat_completion.choices[0].message.content, "html"))
+        css_code = extracter(chat_completion.choices[0].message.content, "css")
+        with open(path.join("predeploy", "style.css"), "a") as f:
+            f.write(css_code)
+        with open(path.join("predeploy", "styles.css"), "a") as f:
+            f.write(css_code)
+        with open(path.join("predeploy", "script.js"), "a") as f:
+            f.write(extracter(chat_completion.choices[0].message.content, "javascript"))
+        if platform == "win32":
+            sys("cd predeploy && start iexplore index.html")
+        elif platform == "linux" or platform == "linux2":
+            sys("cd predeploy && firefox index.html")
+    else:
+        weby_deploy()
+        txt.insert(END, "\n" + "Bot -> Your deployment is done! :)")
     e.delete(0, END)
 
 #----------------------------------------------------

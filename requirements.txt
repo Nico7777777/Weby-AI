@@ -1,1 +1,5 @@
 openai
+pandas
+scikit-learn
+pyinstaller
+python-dotenv
