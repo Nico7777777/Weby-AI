@@ -3,3 +3,5 @@ pandas
 scikit-learn
 pyinstaller
 python-dotenv
+spacy
+en_core_web_sm

@@ -1,71 +1,104 @@
 
-* {
-    box-sizing: border-box;
+/* Reset default styles */
+html, body, ul, li {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    color: white;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
 }
 
+/* Header styles */
 header {
-    padding: 20px;
-    background-color: #333;
+  background-color: #333;
 }
 
-.navigation {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
-.navigation li {
-    margin-right: 20px;
+nav ul li {
+  margin-right: 10px;
 }
 
-.navigation li a {
-    color: white;
-    text-decoration: none;
+nav ul li a {
+  color: white;
+  text-decoration: none;
 }
 
+/* Landing section styles */
 .landing {
-    text-align: center;
-    padding: 100px;
+  text-align: center;
+  padding: 100px;
 }
 
-.info {
-    padding: 50px;
-    background-color: #555;
-    text-align: center;
+.landing h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
+.landing p {
+  font-size: 24px;
+}
+
+/* Content section styles */
+.content {
+  padding: 50px;
+}
+
+.content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Contact section styles */
 .contact {
-    padding: 50px;
-    background-color: #333;
-    text-align: center;
+  text-align: center;
+  padding: 50px;
 }
 
-.contact input,
-.contact textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+.contact h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
-.contact button {
-    background-color: #555;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.contact form label {
+  margin-bottom: 5px;
+}
+
+.contact form input,
+.contact form textarea {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.contact form input[type="submit"] {
+  width: auto;
+  cursor: pointer;
+}
+
+/* Footer styles */
 footer {
-    background-color: #333;
-    padding: 20px;
-    text-align: center;
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+  color: white;
 }
