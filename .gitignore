@@ -2,4 +2,4 @@ build
 dist
 main.spec
 .env
-predeploy
+predeploy/*
