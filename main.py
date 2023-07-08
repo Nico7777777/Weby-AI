@@ -6,9 +6,8 @@ from src.deploy import weby_deploy
 from os import environ
 from os import path
 from os import mkdir
-from os import sys
-from sys import platform
 from dotenv import load_dotenv
+import webbrowser
 
 load_dotenv()
 
@@ -54,7 +53,7 @@ def send():
         txt.insert(END, "\n" + "Bot -> Your command is done successfully! :)")
         if not path.exists("predeploy"):
             mkdir("predeploy")
-        with open(path.join("predeploy", "input.html"), "a") as f:
+        with open(path.join("predeploy", "index.html"), "a") as f:
             f.write(extracter(chat_completion.choices[0].message.content, "html"))
         css_code = extracter(chat_completion.choices[0].message.content, "css")
         with open(path.join("predeploy", "style.css"), "a") as f:
@@ -63,10 +62,7 @@ def send():
             f.write(css_code)
         with open(path.join("predeploy", "script.js"), "a") as f:
             f.write(extracter(chat_completion.choices[0].message.content, "javascript"))
-        if platform == "win32":
-            sys("cd predeploy && start iexplore index.html")
-        elif platform == "linux" or platform == "linux2":
-            sys("cd predeploy && firefox index.html")
+        webbrowser.open(path.join("predeploy", "index.html"))
     else:
         weby_deploy(netlify_ssh_key)
         txt.insert(END, "\n" + "Bot -> Your deployment is done! :)")
