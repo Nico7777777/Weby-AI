@@ -1,2 +1,3 @@
+s a basic example of a website with the given requirements:
 
-// Add any custom JavaScript functionality here (if needed)
+HTML:

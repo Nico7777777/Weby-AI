@@ -48,7 +48,7 @@ def send():
     txt.insert(END, "\n" + send)
     if (nlp_clasificator(input) < 0.3):
         chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": input},
-                                                                                        {"role": "system", "content": "you give me only the html, css and js for my requirement about a website without any messages and comments"}])
+                                                                                        {"role": "system", "content": "I need help creating a website, please provide only HTML, CSS, and JS code for the following requirements: modern and user-friendly design, responsive layout for mobile and desktop, navigation menu for easy browsing, eye-catching home page, informative about page, contact page with form or contact details, customizable colors and fonts, please provide the necessary code to fulfill these requirements, please use embers theme color pallet for this website."}])
         txt.insert(END, "\n" + "Bot -> Your command is done successfully! :)")
         if not path.exists("predeploy"):
             mkdir("predeploy")
@@ -66,7 +66,6 @@ def send():
         weby_deploy(linkId)
         txt.insert(END, "\n" + "Bot -> Your deployment is done! :)\n\nLink: https://weblyai-website--webyaiexample.netlify.app")
     e.delete(0, END)
-
 #----------------------------------------------------
 
 send = Button(root, text="Send", font=FONT_BOLD, bg=BG_GRAY,
