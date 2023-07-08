@@ -14,6 +14,7 @@ load_dotenv()
 
 
 openai.api_key = environ.get('OPENAI_SK')
+netlify_ssh_key = environ.get('NETLIFY_SSH_KEY')
 
 models = openai.Model.list()
 
@@ -67,7 +68,7 @@ def send():
         elif platform == "linux" or platform == "linux2":
             sys("cd predeploy && firefox index.html")
     else:
-        weby_deploy()
+        weby_deploy(netlify_ssh_key)
         txt.insert(END, "\n" + "Bot -> Your deployment is done! :)")
     e.delete(0, END)
 
