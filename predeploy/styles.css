@@ -1,104 +1,127 @@
 
-/* Reset default styles */
-html, body, ul, li {
-  margin: 0;
-  padding: 0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: black;
-  color: white;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
 }
 
-/* Header styles */
-header {
-  background-color: #333;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-nav ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
+nav {
+    background-color: #333;
+    padding: 10px 0;
 }
 
-nav ul li {
-  margin-right: 10px;
+nav .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
+nav ul.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-/* Landing section styles */
-.landing {
-  text-align: center;
-  padding: 100px;
+nav ul.menu li {
+    margin-right: 20px;
 }
 
-.landing h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+nav ul.menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.landing p {
-  font-size: 24px;
+nav ul.menu li a:hover {
+    color: #999;
 }
 
-/* Content section styles */
-.content {
-  padding: 50px;
+.hero {
+    background-image: url('hero-image.jpg');
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
 }
 
-.content h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
-.content p {
-  font-size: 18px;
-  line-height: 1.5;
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
 }
 
-/* Contact section styles */
-.contact {
-  text-align: center;
-  padding: 50px;
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.contact h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
+.btn:hover {
+    background-color: #cc372e;
 }
 
-.contact form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.about {
+    padding: 100px 0;
+    background-color: #222;
+    text-align: center;
 }
 
-.contact form label {
-  margin-bottom: 5px;
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
-.contact form input,
-.contact form textarea {
-  width: 300px;
-  padding: 10px;
-  margin-bottom: 10px;
+.about p {
+    font-size: 18px;
 }
 
-.contact form input[type="submit"] {
-  width: auto;
-  cursor: pointer;
+.shop {
+    padding: 100px 0;
+    text-align: center;
 }
 
-/* Footer styles */
+.shop h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.shop p {
+    font-size: 18px;
+}
+
 footer {
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
-  color: white;
+    background-color: #333;
+    padding: 15px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 14px;
+    color: white;
 }
